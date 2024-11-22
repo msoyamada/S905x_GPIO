@@ -1,5 +1,5 @@
 # Acesso GPIO TVBOX com SoC Amlogic 905x
-Exemplo realizado com a TVBOX TG3
+Exemplo realizado com a TVBOX TG3 - S905X (4 núcleos A53, similar a Raspberry 3)
 <img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/tg3.jpg" width="270" height="140"> 
 
 <img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/screenshots/LogoCC-Copia.png" width="100" height="97">
