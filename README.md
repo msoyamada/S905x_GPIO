@@ -16,9 +16,9 @@ Imagem (https://github.com/ophub/amlogic-s9xxx-armbian/releases/download/Armbian
 # X905x GPIO 
 Dois controladores GPIO
 
-gpiochip0 - 11 lines (AO)
+gpiochip0 - 11 pinos (controlador AO)
 
-gpiochip1 - 100 lines 
+gpiochip1 - 100 pinos
 
 * Todos os pinos são multiplexados e podem ter mais de uma funcionalidade 
   
