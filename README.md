@@ -29,7 +29,7 @@ Na TG3 não foi possível mapear nenhum GPIO disponível, apenas o TX/RX dispon�
 
 <img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/serial.jpg" width="400" height="380"> 
 
-Na (X in Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C disponíveis.
+Na (X Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C disponíveis.
 
 
 ## Blinka 
