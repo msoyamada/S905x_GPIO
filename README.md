@@ -19,13 +19,13 @@ gpiochip0 - 11 lines (AO)
 
 gpiochip1 - 100 lines 
 
-* Todos os pinos são multiplexados, e podem ter mais de uma funcionalidade *
+* Todos os pinos são multiplexados e podem ter mais de uma funcionalidade 
   
 Na TG3 não foi possível mapear nenhum GPIO disponível, apenas o TX/RX disponível na porta serial 
 
-TX= GPIO (0, 0)  - chip 0, porta 0
+* TX= GPIO (0, 0)  - chip 0, porta 0
 
-RX= GPIO (0, 1) - chip 0, porta 1
+* RX= GPIO (0, 1) - chip 0, porta 1
 
 <img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/serial.jpg" width="420" height="380"> 
 
