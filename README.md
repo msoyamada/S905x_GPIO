@@ -32,10 +32,10 @@ Na TG3 não foi possível mapear nenhum GPIO disponível, apenas o TX/RX dispon�
 Na (X Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C disponíveis.
 
 
-## Blinka 
+## Instalando o Blinka 
 Blinka: Blinka brings CircuitPython APIs and, therefore, CircuitPython libraries to single board computers (SBCs). https://circuitpython.org/blinka
 
-Popular na Raspberry, possibilita o acesso nas portas GPIO. Possui também uma vasta biblioteca de acesso a placas via I2C.
+Popular na Raspberry, possibilita o acesso as portas GPIO. Possui também uma vasta biblioteca de acesso a placas via I2C.
 
 
 Instalação de pacotes
@@ -56,7 +56,7 @@ mkdir s905x && cd s905x
 python -m venv .env
 source .env/bin/activate 
 ```
-**Nao esquecer de executar um `source .env/bin/activate` a cada inicialização da placa**
+**Nao esquecer de executar `source .env/bin/activate` a cada inicialização da placa**
 
 
 Instalar os pacotes python
