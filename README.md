@@ -1,4 +1,4 @@
-# TVBOX com SoC Amlogic 905x
+# Acesso GPIO TVBOX com SoC Amlogic 905x
 Exemplo realizado com a TVBOX TG3
 <img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/tg3.jpg" width="270" height="140"> 
 
