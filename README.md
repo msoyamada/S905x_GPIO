@@ -1,6 +1,6 @@
 # TVBOX com SoC Amlogic 905x
 Exemplo realizado com a TVBOX TG3
-<img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/tg3.jpg" width="270" height="95"> 
+<img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/tg3.jpg" width="270" height="140"> 
 
 <img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/screenshots/LogoCC-Copia.png" width="100" height="97">
 Ciência da Computação - Campus Cascavel
@@ -8,19 +8,26 @@ Ciência da Computação - Campus Cascavel
 
 # Instalar o Armbian
 Sugestão: https://github.com/ophub/amlogic-s9xxx-armbian/releases
+
 Imagem (https://github.com/ophub/amlogic-s9xxx-armbian/releases/download/Armbian_noble_save_2024.11/Armbian_24.11.0_amlogic_s905x-t95_noble_6.6.62_server_2024.11.20.img.gz)
 
 
 # X905x GPIO 
 Dois controladores GPIO
+
 gpiochip0 - 11 lines (AO)
+
 gpiochip1 - 100 lines 
 
 * Todos os pinos são multiplexados, e podem ter mais de uma funcionalidade *
+  
 Na TG3 não foi possível mapear nenhum GPIO disponível, apenas o TX/RX disponível na porta serial 
+
 TX= GPIO (0, 0)  - chip 0, porta 0
+
 RX= GPIO (0, 1) - chip 0, porta 1
-Na (X in Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C.
+
+Na (X in Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C disponíveis.
 
 
 ## Blinka 
@@ -47,7 +54,7 @@ mkdir s905x && cd s905x
 python -m venv .env
 source .env/bin/activate 
 ```
-**Nao esquecer de dar um `source .env/bin/activate` a cada inicialização da placa**
+**Nao esquecer de executar um `source .env/bin/activate` a cada inicialização da placa**
 
 
 Instalar os pacotes python
@@ -65,8 +72,7 @@ Conexão
 GPIO0_0 -> LED -> RESISTOR 220 Ohm -> GND
 
 
-Código python [blink.py](examples/s905x_blink.py)
-É necessário definir o chip como S905X explicitamente, pois o platform detector do Blinka não reconhece o chip.
+Código python [blink.py](examples/s905x_blink.py) É necessário definir o chip como S905X explicitamente, pois o platform detector do Blinka não reconhece o chip.
 
 ```
 import os
@@ -101,31 +107,25 @@ pip install adafruit-circuitpython-bitbangio
 ```
 
 Para a conexão, pode-se utilizar os pinos disponíveis para a conexão serial disponível na placa 
-
+```
 3.3V
 RX  - SDA
 TX  - SCL
 GND
-
+```
 
 Como primeiro teste, é possível fazer a busca de dispositivos conectados[examples/i2cscanner_bitbang.py]. 
 
 ```
-
 import os
 os.environ["BLINKA_FORCEBOARD"]="GENERIC_LINUX_PC"
 os.environ["BLINKA_FORCECHIP"]="S905X"
-
 
 import time
 import board
 import digitalio
 from adafruit_blinka.microcontroller.generic_linux.libgpiod_pin import Pin
-
-
-
 import adafruit_bitbangio as io
-
 SCL = Pin((0,0))
 SDA = Pin ((0,1))
 
@@ -138,10 +138,10 @@ i2c.deinit()
 ```
 
 Exemplo de saída (dois dispositivos foram detectados):
-
+```
 (.env) root@armbian:~/blinka# python i2cscanner_bitbang.py
 [60, 118]
-
+```
 
 ### Instalar o circuitpython-ssd1306 
 
@@ -162,7 +162,7 @@ BMP280 - Temperatura e pressão
  
 Código [displaybmp.py](examples/bmp_ssd_s905.py)
 
-<img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/images/bmpdisplay.jpg" width="300" height="300">
+<img src="https://github.com/msoyamada/S905X_GPIO/blob/main/images/bmpdisplay.jpg" width="300" height="300">
 
 
 
