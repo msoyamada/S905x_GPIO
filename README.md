@@ -27,6 +27,8 @@ TX= GPIO (0, 0)  - chip 0, porta 0
 
 RX= GPIO (0, 1) - chip 0, porta 1
 
+<img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/serial.jpg" width="270" height="140"> 
+
 Na (X in Plus)[https://github.com/msoyamada/XPlus_GPIO] o número de pinos foi maior, inclusive foram identificadas portas I2C disponíveis.
 
 
