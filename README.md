@@ -1,6 +1,6 @@
 # TVBOX com SoC Amlogic 905x
 Exemplo realizado com a TVBOX TG3
-<img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/images/tg3,jpg" width="270" height="95"> 
+<img src="https://github.com/msoyamada/s905x_GPIO/blob/main/images/tg3.jpg" width="270" height="95"> 
 
 <img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/screenshots/LogoCC-Copia.png" width="100" height="97">
 Ciência da Computação - Campus Cascavel
@@ -65,5 +65,109 @@ Conexão
 GPIO0_0 -> LED -> RESISTOR 220 Ohm -> GND
 
 
-Código python [blink.py](Examples/blink.py)
+Código python [blink.py](examples/s905x_blink.py)
+É necessário definir o chip como S905X explicitamente, pois o platform detector do Blinka não reconhece o chip.
 
+```
+import os
+os.environ["BLINKA_FORCEBOARD"]="GENERIC_LINUX_PC"
+os.environ["BLINKA_FORCECHIP"]="S905X"
+
+import time
+import board
+import digitalio
+from adafruit_blinka.microcontroller.generic_linux.libgpiod_pin import Pin
+
+pin = Pin((0,0))
+
+print("hello blinky!")
+
+led = digitalio.DigitalInOut(pin)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    led.value = True
+    time.sleep(0.5)
+    led.value = False
+    time.sleep(0.5)
+
+```
+
+### Conexão i2c
+Como não foi identificado nenhuma porta I2C, uma solução para o interfaceamento é utilizar a implementação bitbangIO da CircuitPython. Essa biblioteca, implementa o protocolo I2C na CPU sem utilizar um controlador em hardware.
+
+```
+pip install adafruit-circuitpython-bitbangio
+```
+
+Para a conexão, pode-se utilizar os pinos disponíveis para a conexão serial disponível na placa 
+
+3.3V
+RX  - SDA
+TX  - SCL
+GND
+
+
+Como primeiro teste, é possível fazer a busca de dispositivos conectados[examples/i2cscanner_bitbang.py]. 
+
+```
+
+import os
+os.environ["BLINKA_FORCEBOARD"]="GENERIC_LINUX_PC"
+os.environ["BLINKA_FORCECHIP"]="S905X"
+
+
+import time
+import board
+import digitalio
+from adafruit_blinka.microcontroller.generic_linux.libgpiod_pin import Pin
+
+
+
+import adafruit_bitbangio as io
+
+SCL = Pin((0,0))
+SDA = Pin ((0,1))
+
+i2c = io.I2C(SCL, SDA)
+while not i2c.try_lock():
+    pass
+
+print(i2c.scan())
+i2c.deinit()
+```
+
+Exemplo de saída (dois dispositivos foram detectados):
+
+(.env) root@armbian:~/blinka# python i2cscanner_bitbang.py
+[60, 118]
+
+
+### Instalar o circuitpython-ssd1306 
+
+OLED 
+
+```
+apt install libjpeg-dev
+pip install pillow 
+pip install adafruit-circuitpython-ssd1306 
+```
+
+### Instalar o circuitpython-bmp280
+BMP280 - Temperatura e pressão
+
+`pip install adafruit-circuitpython-bmp280`
+
+- Leitura dos dados do BMP e apresentando no display
+ 
+Código [displaybmp.py](examples/bmp_ssd_s905.py)
+
+<img src="https://github.com/msoyamada/XPlus_GPIO/blob/main/images/bmpdisplay.jpg" width="300" height="300">
+
+
+
+
+
+
+
+ 
