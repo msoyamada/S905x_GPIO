@@ -116,7 +116,7 @@ TX  - SCL
 GND
 ```
 
-Como primeiro teste, é possível fazer a busca de dispositivos conectados[examples/i2cscanner_bitbang.py]. 
+Como primeiro teste, é possível fazer a busca de dispositivos conectados [i2cscanner_bitbang.py](examples/i2cscanner_bitbang.py). 
 
 ```
 import os
@@ -164,7 +164,7 @@ BMP280 - Temperatura e pressão
  
 Código [displaybmp.py](examples/bmp_ssd_s905.py)
 
-<img src="https://github.com/msoyamada/S905X_GPIO/blob/main/images/bmpdisplay.jpg" width="300" height="300">
+<img src="https://github.com/msoyamada/S905X_GPIO/blob/main/images/bmp_display.jpg" width="300" height="300">
 
 
 
